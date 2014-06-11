@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MinecraftTools</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Sweg Settings</string>
+    <string name="app_welcome">Welcome to Minecraft Tools! Select an option!</string>
+    <string name="btn_main_singleserver">Server Status (Single)</string>
+    <string name="btn_main_multiserverlist">Server Status List</string>
+    <string name="feature_coming_soon">This feature will be implemented soon!</string>
+    <string name="feature_coming_soon_confirm">OK</string>
+    <string name="title_activity_single_server_checker">SingleServerChecker</string>
+    <string name="btnSubmit">Submit</string>
+    <string name="txt_SS_Info">Enter IP Address and Port (If any):</string>
+    <string name="hint_SS_Info">IP:Port (Default Port is 25565)</string>
+
+</resources>
