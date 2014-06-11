@@ -18,7 +18,7 @@ public class MainActivity extends TabActivity {
 		TabHost mTabHost = getTabHost();
 
 	    mTabHost.addTab(mTabHost.newTabSpec("first").setIndicator("First").setContent(new Intent(this  ,Tab1Activity.class )));
-	    mTabHost.addTab(mTabHost.newTabSpec("second").setIndicator("Second").setContent(new Intent(this , Tab2Activity.class )));
+	    mTabHost.addTab(mTabHost.newTabSpec("second").setIndicator("Fragment Test").setContent(new Intent(this , Tab2Activity.class )));
 	    mTabHost.setCurrentTab(0);
 	}
 

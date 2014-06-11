@@ -2,22 +2,28 @@ package com.cheese.swipeviewtest;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.widget.TextView;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 
 public class Tab2Activity  extends Activity
 {
+	
+	private Button fragBtn;
+	
         @Override
         public void onCreate(Bundle savedInstanceState)
         {
             super.onCreate(savedInstanceState);
-            
-            TextView  tv=new TextView(this);
-            tv.setTextSize(25);
-            tv.setGravity(Gravity.CENTER_VERTICAL);
-            tv.setText("This Is Tab2 Activity");
-            //setContentView( R.layout.second_layout );
-            
-            setContentView(tv);
+            setContentView( R.layout.second_layout );
+            this.fragBtn = (Button) findViewById(R.id.button1);
+            this.fragBtn.setOnClickListener(new View.OnClickListener() {
+    			
+    			@Override
+    			public void onClick(View v) {
+    				Log.d("Manual: ", "Launching fragment...");
+    				setContentView(R.layout.second_layout);
+    			}
+    		});
         }
 }
