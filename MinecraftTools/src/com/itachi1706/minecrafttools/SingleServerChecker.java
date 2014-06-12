@@ -10,8 +10,12 @@ import java.util.regex.Pattern;
 
 import com.itachi1706.minecrafttools.PingServer17.StatusResponse;
 
-import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.text.Html;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -24,17 +28,60 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class SingleServerChecker extends ActionBarActivity {
+public class SingleServerChecker extends ActionBarActivity implements android.app.ActionBar.TabListener {
 
+	private ViewPager viewPager;
+	private TabPagerAdapter mAdapter;
+	private android.app.ActionBar actionBar;
+	
+	//Tab Titles
+	private String[] tabs = {"1.7 and above servers", "1.6 Servers (Coming Soon)"};
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_single_server_checker);
-
+		
 		if (savedInstanceState == null) {
+			// Init Pager
+			viewPager = (ViewPager) findViewById(R.id.pager);
+			actionBar = getActionBar();
+			mAdapter = new TabPagerAdapter(getSupportFragmentManager());
+			
+			viewPager.setAdapter(mAdapter);
+			actionBar.setHomeButtonEnabled(false);
+			actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+			
+			
+			// Adding Tabs
+	        for (String tab_name : tabs) {
+	            actionBar.addTab(actionBar.newTab().setText(tab_name)
+	                    .setTabListener(this));
+	        }
+	        
+	        viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+	        	 
+	            @Override
+	            public void onPageSelected(int position) {
+	                // on changing the page
+	                // make respected tab selected
+	                actionBar.setSelectedNavigationItem(position);
+	            }
+	         
+	            @Override
+	            public void onPageScrolled(int arg0, float arg1, int arg2) {
+	            }
+	         
+	            @Override
+	            public void onPageScrollStateChanged(int arg0) {
+	            }
+	        });
+		}
+
+		/*if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment()).commit();
-		}
+		}*/
 	}
 
 	@Override
@@ -55,6 +102,30 @@ public class SingleServerChecker extends ActionBarActivity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	/**
+	 * A FragmentTabPager adapter
+	 */
+	public static class TabPagerAdapter extends FragmentPagerAdapter{
+		
+		public TabPagerAdapter(FragmentManager fm){
+			super(fm);
+		}
+		
+		@Override
+		public Fragment getItem(int index){
+			switch (index){
+			case 0: return new PlaceholderFragment();
+			case 1: return new ServerCheck16();
+			}
+			return null;
+		}
+		
+		@Override
+		public int getCount(){
+			return 2;
+		}
 	}
 
 	/**
@@ -94,6 +165,7 @@ public class SingleServerChecker extends ActionBarActivity {
 				port = 25565;
 			} else {
 				try {	
+					port = Integer.parseInt(portString);
 				} catch (InputMismatchException ex){
 					//System.out.println("An error occured parsing the port! Assuming Default Port (25565)! (" + ex.toString() + ")");
 					Toast.makeText(getActivity().getApplication(), "An error occured parsing the port! Assuming Default Port (25565)! (" + ex.toString() + ")", Toast.LENGTH_SHORT).show();
@@ -205,6 +277,52 @@ public class SingleServerChecker extends ActionBarActivity {
 			out = out.replace("§o", "");
 			out = out.replace("§r", "");
 			return out;
+		}
+	}
+	
+	@Override
+	public void onTabSelected(android.app.ActionBar.Tab tab,
+			android.app.FragmentTransaction ft) {
+		// TODO Auto-generated method stub
+		// on tab selected
+        // show respected fragment view
+        viewPager.setCurrentItem(tab.getPosition());
+		
+	}
+
+	@Override
+	public void onTabUnselected(android.app.ActionBar.Tab tab,
+			android.app.FragmentTransaction ft) {
+		// TODO Auto-generated method stub
+		
+		
+	}
+
+	@Override
+	public void onTabReselected(android.app.ActionBar.Tab tab,
+			android.app.FragmentTransaction ft) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	//Temp Soon Page
+	public static class ServerCheck16 extends Fragment implements OnClickListener {
+
+		public ServerCheck16() {
+		}
+
+		
+		@Override
+		public View onCreateView(LayoutInflater inflater, ViewGroup container,
+				Bundle savedInstanceState) {
+			View rootView = inflater.inflate(
+					R.layout.fragment_single_server_checker_1_6, container, false);
+			return rootView;
+		}
+		
+		@Override
+		public void onClick(View v){
+
 		}
 	}
 
