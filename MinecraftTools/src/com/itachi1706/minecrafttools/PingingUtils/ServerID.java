@@ -1,4 +1,4 @@
-package com.itachi1706.minecrafttools;
+package com.itachi1706.minecrafttools.PingingUtils;
 
 import android.annotation.SuppressLint;
 import java.io.UnsupportedEncodingException;

@@ -1,4 +1,4 @@
-package com.itachi1706.minecrafttools;
+package com.itachi1706.minecrafttools.PingingUtils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
@@ -13,7 +13,6 @@ import java.util.List;
 
 import android.os.AsyncTask;
 import android.util.Log;
-
 import com.google.gson.Gson;
 
 public class PingServer17 {
@@ -94,7 +93,7 @@ public class PingServer17 {
         handshake.writeByte(0x00); //packet id for handshake
         writeVarInt(handshake, 4); //protocol version (4 as of MC 1.7.2)
         //writeVarInt(handshake, this.host.getHostName().length()); //host length
-        String hostnamer = new PingServer17Length().onPostExecute(this.host);
+        String hostnamer = new PingServer17Host().onPostExecute(this.host);
         writeVarInt(handshake, hostnamer.length()); //host length
         //handshake.writeBytes(this.host.getHostName()); //host string
         handshake.writeBytes(hostnamer); //host strin
@@ -179,7 +178,7 @@ public class PingServer17 {
         return response;
     }
     
-    public class PingServer17Length extends AsyncTask<InetSocketAddress, Void, String>{
+    public class PingServer17Host extends AsyncTask<InetSocketAddress, Void, String>{
     	// Do the long-running work in here
 		@Override
 		protected  String doInBackground(InetSocketAddress... addr) {
@@ -200,6 +199,10 @@ public class PingServer17 {
         private Version version;
         private String favicon;
         private int time;
+        
+        public StatusResponse(String desc){
+        	description=desc;
+        }
  
         public String getDescription() {
             return description;

@@ -13,5 +13,7 @@
     <string name="btnSubmit">Submit</string>
     <string name="txt_SS_Info">Enter IP Address and Port (If any):</string>
     <string name="hint_SS_Info">IP:Port (Default Port is 25565)</string>
+    <string name="title_activity_settings">Sweg Settings</string>
+    <string name="title_activity_show_settings">Display Current Selected Settings</string>
 
 </resources>

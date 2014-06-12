@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+    
+    <PreferenceCategory
+        android:title="Test Settings (Not actually functional)"
+        android:key="first_category">
+
+        <CheckBoxPreference android:key="perform_updates"
+            android:summary="Enable or disable data updates"
+            android:title="Enable updates"
+            android:defaultValue="true"/>
+        <Preference 
+            android:key="start_intent_android_com"
+           	android:title="Intent Test"
+            android:summary="Launches an start browser Intent (www.android.com)">
+            <intent
+             android:action="android.intent.action.VIEW"
+             android:data="http://www.android.com"/>
+       	</Preference>
+        
+        
+    <EditTextPreference android:key="welcome_message" android:title="Welcome Message" android:summary="Define the Welcome message to be shown" android:dialogTitle="Welcome Message" android:dialogMessage="Provide a message" android:defaultValue="Default welcome message" /></PreferenceCategory>  
+    
+    
+            <PreferenceCategory android:title="About" android:key="info_category"><Preference android:title="App Version" android:key="view_app_version" android:summary="NULL" />
+            <Preference android:title="Package Name" android:key="view_app_name"/>
+</PreferenceCategory>
+    
+
+</PreferenceScreen>

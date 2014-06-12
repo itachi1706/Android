@@ -6,36 +6,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.itachi1706.minecrafttools.SingleServerChecker$PlaceholderFragment" >
-
-    <EditText
-        android:id="@+id/serverAddress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp"
-        android:ems="10"
-        android:hint="@string/hint_SS_Info"
-        android:inputType="textNoSuggestions|textUri" />
-
-    <Button
-        android:id="@+id/btnSubmit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/serverAddress"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:text="@string/btnSubmit" />
-
-    <TextView
-        android:id="@+id/tvInfo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/serverAddress"
-        android:layout_below="@+id/serverAddress"
-        android:text="@string/txt_SS_Info" />
+    tools:context="com.itachi1706.minecrafttools.ServerChecker17Fragment" >
 
     <TextView
         android:id="@+id/tvResult"
@@ -45,5 +16,55 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/serverAddress"
         android:layout_below="@+id/btnSubmit" />
+
+    <EditText
+        android:id="@+id/serverAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:ems="10"
+        android:hint="@string/hint_SS_Info"
+        android:inputType="textNoSuggestions|textUri" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/serverAddress"
+        android:layout_below="@+id/serverAddress"
+        android:text="@string/txt_SS_Info" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvInfo"
+        android:layout_centerHorizontal="true"
+        android:text="@string/btnSubmit" />
+
+    <TextView
+        android:id="@+id/tvVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <ProgressBar
+        android:id="@+id/pbChkServer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tvResult"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:indeterminate="true"
+        android:visibility="gone" />
 
 </RelativeLayout>

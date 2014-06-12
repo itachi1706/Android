@@ -7,7 +7,8 @@
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="19" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,9 +17,9 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.itachi1706.minecrafttools.MainScreen"
-            android:label="@string/app_name" 
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,9 +28,19 @@
         </activity>
         <activity
             android:name="com.itachi1706.minecrafttools.SingleServerChecker"
-            android:label="@string/title_activity_single_server_checker" 
             android:configChanges="orientation"
-            android:screenOrientation="portrait">
+            android:label="@string/title_activity_single_server_checker"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.itachi1706.minecrafttools.UserSettingsActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.itachi1706.minecrafttools.ShowSettingsActivity"
+            android:label="@string/title_activity_show_settings" >
         </activity>
     </application>
 
