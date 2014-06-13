@@ -9,6 +9,7 @@
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:allowBackup="true"
@@ -41,6 +42,24 @@
         <activity
             android:name="com.itachi1706.minecrafttools.ShowSettingsActivity"
             android:label="@string/title_activity_show_settings" >
+        </activity>
+        <activity
+            android:name="com.itachi1706.minecrafttools.TestFTPMode"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_test_ftpmode"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name="com.itachi1706.minecrafttools.UpdateResource"
+            android:label="@string/title_activity_update_resource" >
+        </activity>
+        <activity
+            android:name="com.itachi1706.minecrafttools.GetNewResources"
+            android:label="@string/title_activity_get_new_resources" >
+        </activity>
+        <activity
+            android:name="com.itachi1706.minecrafttools.UpdateResources"
+            android:label="@string/title_activity_update_resources" >
         </activity>
     </application>
 

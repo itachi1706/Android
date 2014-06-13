@@ -58,7 +58,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <ProgressBar
-        android:id="@+id/pbChkServer"
+        android:id="@+id/pbUpdateRes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/tvResult"

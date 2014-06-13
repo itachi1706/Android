@@ -65,6 +65,51 @@ public class UserSettingsActivity extends PreferenceActivity{
             verPref.setSummary(version);
             Preference pNamePref = (Preference) findPreference("view_app_name");
             pNamePref.setSummary(packName);
+            
+            Preference prefs = (Preference) findPreference("view_sdk_version");
+            prefs.setSummary(android.os.Build.VERSION.RELEASE);
+            prefs = (Preference) findPreference("view_board_ver");
+            prefs.setSummary(android.os.Build.BOARD);
+            prefs = (Preference) findPreference("view_bootloader_ver");
+            prefs.setSummary(android.os.Build.BOOTLOADER);
+            prefs = (Preference) findPreference("view_brand_ver");
+            prefs.setSummary(android.os.Build.BRAND);
+            prefs = (Preference) findPreference("view_cpu1_ver");
+            prefs.setSummary(android.os.Build.CPU_ABI);
+            prefs = (Preference) findPreference("view_cpu2_ver");
+            prefs.setSummary(android.os.Build.CPU_ABI2);
+            prefs = (Preference) findPreference("view_device_ver");
+            prefs.setSummary(android.os.Build.DEVICE);
+            prefs = (Preference) findPreference("view_display_ver");
+            prefs.setSummary(android.os.Build.DISPLAY);
+            prefs = (Preference) findPreference("view_fingerprint_ver");
+            prefs.setSummary(android.os.Build.FINGERPRINT);
+            prefs = (Preference) findPreference("view_hardware_ver");
+            prefs.setSummary(android.os.Build.HARDWARE);
+            prefs = (Preference) findPreference("view_host_ver");
+            prefs.setSummary(android.os.Build.HOST);
+            prefs = (Preference) findPreference("view_id_ver");
+            prefs.setSummary(android.os.Build.ID);
+            prefs = (Preference) findPreference("view_manufacturer_ver");
+            prefs.setSummary(android.os.Build.MANUFACTURER);
+            prefs = (Preference) findPreference("view_model_ver");
+            prefs.setSummary(android.os.Build.MODEL);
+            prefs = (Preference) findPreference("view_product_ver");
+            prefs.setSummary(android.os.Build.PRODUCT);
+            prefs = (Preference) findPreference("view_radio_ver");
+            if (android.os.Build.getRadioVersion() != null){
+            	prefs.setSummary(android.os.Build.getRadioVersion());
+            }
+            prefs = (Preference) findPreference("view_serial_ver");
+            prefs.setSummary(android.os.Build.SERIAL);
+            prefs = (Preference) findPreference("view_tags_ver");
+            prefs.setSummary(android.os.Build.TAGS);
+            prefs = (Preference) findPreference("view_type_ver");
+            prefs.setSummary(android.os.Build.TYPE);
+            prefs = (Preference) findPreference("view_user_ver");
+            if (android.os.Build.USER != null){
+            	prefs.setSummary(android.os.Build.USER);
+            }
         } 
          
 } 

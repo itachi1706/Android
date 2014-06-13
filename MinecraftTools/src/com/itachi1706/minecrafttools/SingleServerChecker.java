@@ -4,9 +4,10 @@ import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.UnknownHostException;
 import java.util.InputMismatchException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
+import com.itachi1706.minecrafttools.AsyncTasks.GetServerStatusFor16;
+import com.itachi1706.minecrafttools.AsyncTasks.GetServerStatusFor17;
+import com.itachi1706.minecrafttools.PingingUtils.CommonPingTools;
 import com.itachi1706.minecrafttools.PingingUtils.PingServer16;
 import com.itachi1706.minecrafttools.PingingUtils.PingServer17;
 
@@ -79,16 +80,10 @@ public class SingleServerChecker extends ActionBarActivity implements android.ap
 	            }
 	        });
 		}
-
-		/*if (savedInstanceState == null) {
-			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
-		}*/
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.single_server_checker, menu);
 		return true;
@@ -186,7 +181,7 @@ public class SingleServerChecker extends ActionBarActivity implements android.ap
 		public void onClick(View v){
 			InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(FragmentActivity.INPUT_METHOD_SERVICE);
 			imm.hideSoftInputFromWindow(addressView.getWindowToken(), 0);
-			getActivity().findViewById(R.id.pbChkServer).setVisibility(View.VISIBLE);
+			getActivity().findViewById(R.id.pbUpdateRes).setVisibility(View.VISIBLE);
 			PingServer17 server = new PingServer17();
 			String addressString = addressView.getText().toString();
 			addressString = addressString + ":25565";
@@ -212,7 +207,7 @@ public class SingleServerChecker extends ActionBarActivity implements android.ap
 			StringBuilder builder = new StringBuilder();
 			//Check IP or DNS
 			InetAddress address = null;
-			if (isIP(ip)){
+			if (CommonPingTools.isIP(ip)){
 				//IP Address Stuff
 				Toast.makeText(getActivity().getApplication(), "Pinging IP Address " + ip + ":" + port, Toast.LENGTH_LONG).show();
 				try {
@@ -243,59 +238,7 @@ public class SingleServerChecker extends ActionBarActivity implements android.ap
 			server.setAddress(actualAddr);
 			new GetServerStatusFor17(getActivity(), builder, ip, address, resultView).execute(server);
 		}
-		
-		public static boolean isIP(String ip){  
-			boolean isValid = false;  
-			  
-			/*IP: A numeric value will have following format: 
-			         ^[-+]?: Starts with an optional "+" or "-" sign. 
-			     [0-9]*: May have one or more digits. 
-			    \\.? : May contain an optional "." (decimal point) character. 
-			    [0-9]+$ : ends with numeric digit. 
-			*/  
-			  
-			//Initialize reg ex for numeric data.   
-			String expression = "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b";  
-			CharSequence inputStr = ip;  
-			Pattern pattern = Pattern.compile(expression);  
-			Matcher matcher = pattern.matcher(inputStr);  
-			if(matcher.matches()){  
-			isValid = true;  
-			}  
-			return isValid;  
-		}
-		
-		public static String parseFormatting(String in){
-			String out = in;
-			//out = out.replace("§", "</font><font color=#55FFFF>");
-			out = out.replace("§0", "</font><font color=#000000>");
-			out = out.replace("§1", "</font><font color=#0000AA>");
-			out = out.replace("§2", "</font><font color=#00AA00>");
-			out = out.replace("§3", "</font><font color=#00AAAA>");
-			out = out.replace("§4", "</font><font color=#AA0000>");
-			out = out.replace("§5", "</font><font color=#AA00AA>");
-			out = out.replace("§6", "</font><font color=#FFAA00>");
-			out = out.replace("§7", "</font><font color=#AAAAAA>");
-			out = out.replace("§8", "</font><font color=#555555>");
-			out = out.replace("§9", "</font><font color=#5555FF>");
-			out = out.replace("§a", "</font><font color=#55FF55>");
-			out = out.replace("§b", "</font><font color=#55FFFF>");
-			out = out.replace("§c", "</font><font color=#FF5555>");
-			out = out.replace("§d", "</font><font color=#FF55FF>");
-			out = out.replace("§e", "</font><font color=#FFFF55>");
-			out = out.replace("§f", "</font><font color=#FFFFFF>");
-			//End of Colors
-			// Formatting
-			out = out.replace("§k", "");
-			out = out.replace("§l", "");
-			out = out.replace("§m", "");
-			out = out.replace("§n", "");
-			out = out.replace("§o", "");
-			out = out.replace("§r", "</font><font color=#FFFFFF>");
-			return out;
-		}
 	}
-	
 	
 	/**
 	 * A fragment to check status of 1.6 Servers (1.5 and below not supported)
@@ -310,7 +253,6 @@ public class SingleServerChecker extends ActionBarActivity implements android.ap
 		private TextView addressView;
 		private TextView versionView;
 
-		
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
@@ -329,7 +271,7 @@ public class SingleServerChecker extends ActionBarActivity implements android.ap
 		public void onClick(View v){
 			InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(FragmentActivity.INPUT_METHOD_SERVICE);
 			imm.hideSoftInputFromWindow(addressView.getWindowToken(), 0);
-			getActivity().findViewById(R.id.pbChkServer).setVisibility(View.VISIBLE);
+			getActivity().findViewById(R.id.pbUpdateRes).setVisibility(View.VISIBLE);
 			PingServer16 server = new PingServer16();
 			String addressString = addressView.getText().toString();
 			addressString = addressString + ":25565";
@@ -354,7 +296,7 @@ public class SingleServerChecker extends ActionBarActivity implements android.ap
 			StringBuilder builder = new StringBuilder();
 			//Check IP or DNS
 			InetAddress address = null;
-			if (isIP(ip)){
+			if (CommonPingTools.isIP(ip)){
 				//IP Address Stuff
 				Toast.makeText(getActivity().getApplication(), "Pinging IP Address " + ip + ":" + port, Toast.LENGTH_LONG).show();
 				try {
@@ -384,57 +326,6 @@ public class SingleServerChecker extends ActionBarActivity implements android.ap
 			InetSocketAddress actualAddr = new InetSocketAddress(address, port);
 			server.setAddress(actualAddr);
 			new GetServerStatusFor16(getActivity(), builder, ip, address, resultView).execute(server);
-		}
-		
-		public static boolean isIP(String ip){  
-			boolean isValid = false;  
-			  
-			/*IP: A numeric value will have following format: 
-			         ^[-+]?: Starts with an optional "+" or "-" sign. 
-			     [0-9]*: May have one or more digits. 
-			    \\.? : May contain an optional "." (decimal point) character. 
-			    [0-9]+$ : ends with numeric digit. 
-			*/  
-			  
-			//Initialize reg ex for numeric data.   
-			String expression = "\\b(?:\\d{1,3}\\.){3}\\d{1,3}\\b";  
-			CharSequence inputStr = ip;  
-			Pattern pattern = Pattern.compile(expression);  
-			Matcher matcher = pattern.matcher(inputStr);  
-			if(matcher.matches()){  
-			isValid = true;  
-			}  
-			return isValid;  
-		}
-		
-		public static String parseFormatting(String in){
-			String out = in;
-			//out = out.replace("§", "</font><font color=#55FFFF>");
-			out = out.replace("§0", "</font><font color=#000000>");
-			out = out.replace("§1", "</font><font color=#0000AA>");
-			out = out.replace("§2", "</font><font color=#00AA00>");
-			out = out.replace("§3", "</font><font color=#00AAAA>");
-			out = out.replace("§4", "</font><font color=#AA0000>");
-			out = out.replace("§5", "</font><font color=#AA00AA>");
-			out = out.replace("§6", "</font><font color=#FFAA00>");
-			out = out.replace("§7", "</font><font color=#AAAAAA>");
-			out = out.replace("§8", "</font><font color=#555555>");
-			out = out.replace("§9", "</font><font color=#5555FF>");
-			out = out.replace("§a", "</font><font color=#55FF55>");
-			out = out.replace("§b", "</font><font color=#55FFFF>");
-			out = out.replace("§c", "</font><font color=#FF5555>");
-			out = out.replace("§d", "</font><font color=#FF55FF>");
-			out = out.replace("§e", "</font><font color=#FFFF55>");
-			out = out.replace("§f", "</font><font color=#FFFFFF>");
-			//End of Colors
-			// Formatting
-			out = out.replace("§k", "");
-			out = out.replace("§l", "");
-			out = out.replace("§m", "");
-			out = out.replace("§n", "");
-			out = out.replace("§o", "");
-			out = out.replace("§r", "</font><font color=#FFFFFF>");
-			return out;
 		}
 	}
 

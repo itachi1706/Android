@@ -1091,10 +1091,12 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f060016;
         public static final int action_menu_presenter=0x7f060017;
         public static final int action_mode_close_button=0x7f060024;
-        public static final int action_settings=0x7f060047;
+        public static final int action_settings=0x7f06004c;
         public static final int activity_chooser_view_content=0x7f060025;
         public static final int always=0x7f06000b;
         public static final int beginning=0x7f060011;
+        public static final int btnFTPTestConnect=0x7f060047;
+        public static final int btnFTPTestDL=0x7f060048;
         public static final int btnStatusList=0x7f060040;
         public static final int btnStatusSingle=0x7f06003f;
         public static final int btnSubmit=0x7f060044;
@@ -1121,7 +1123,7 @@ containing a value of this type.
         public static final int none=0x7f060010;
         public static final int normal=0x7f060000;
         public static final int pager=0x7f06003d;
-        public static final int pbChkServer=0x7f060046;
+        public static final int pbUpdateRes=0x7f060046;
         public static final int progress_circular=0x7f060018;
         public static final int progress_horizontal=0x7f060019;
         public static final int radio=0x7f06002f;
@@ -1145,10 +1147,13 @@ containing a value of this type.
         public static final int tabMode=0x7f060002;
         public static final int title=0x7f06002b;
         public static final int top_action_bar=0x7f060020;
+        public static final int tvFTPFilesResult=0x7f060049;
         public static final int tvInfo=0x7f06003e;
+        public static final int tvProgress=0x7f06004a;
         public static final int tvResult=0x7f060042;
         public static final int tvSettingsDisplay=0x7f060041;
         public static final int tvVersion=0x7f060045;
+        public static final int tvWarning=0x7f06004b;
         public static final int up=0x7f060021;
         public static final int useLogo=0x7f060003;
         public static final int withText=0x7f06000c;
@@ -1203,19 +1208,27 @@ containing a value of this type.
         public static final int abc_search_dropdown_item_icons_2line=0x7f030015;
         public static final int abc_search_view=0x7f030016;
         public static final int abc_simple_decor=0x7f030017;
-        public static final int activity_main_screen=0x7f030018;
-        public static final int activity_show_settings=0x7f030019;
-        public static final int activity_single_server_checker=0x7f03001a;
-        public static final int fragment_main_screen=0x7f03001b;
-        public static final int fragment_show_settings=0x7f03001c;
-        public static final int fragment_single_server_checker=0x7f03001d;
-        public static final int fragment_single_server_checker_1_6=0x7f03001e;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001f;
+        public static final int activity_get_new_resources=0x7f030018;
+        public static final int activity_main_screen=0x7f030019;
+        public static final int activity_show_settings=0x7f03001a;
+        public static final int activity_single_server_checker=0x7f03001b;
+        public static final int activity_test_ftpmode=0x7f03001c;
+        public static final int activity_update_resources=0x7f03001d;
+        public static final int fragment_main_screen=0x7f03001e;
+        public static final int fragment_show_settings=0x7f03001f;
+        public static final int fragment_single_server_checker=0x7f030020;
+        public static final int fragment_single_server_checker_1_6=0x7f030021;
+        public static final int fragment_test_ftpmode=0x7f030022;
+        public static final int fragment_update_resources=0x7f030023;
+        public static final int support_simple_spinner_dropdown_item=0x7f030024;
     }
     public static final class menu {
-        public static final int main_screen=0x7f0d0000;
-        public static final int show_settings=0x7f0d0001;
-        public static final int single_server_checker=0x7f0d0002;
+        public static final int get_new_resources=0x7f0d0000;
+        public static final int main_screen=0x7f0d0001;
+        public static final int show_settings=0x7f0d0002;
+        public static final int single_server_checker=0x7f0d0003;
+        public static final int test_ftpmode=0x7f0d0004;
+        public static final int update_resources=0x7f0d0005;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1262,15 +1275,22 @@ containing a value of this type.
         public static final int app_name=0x7f0b000d;
         public static final int app_welcome=0x7f0b0010;
         public static final int btnSubmit=0x7f0b0016;
+        public static final int btn_ftp_test_conn_dc=0x7f0b001d;
+        public static final int btn_ftp_test_conn_label=0x7f0b001c;
         public static final int btn_main_multiserverlist=0x7f0b0012;
         public static final int btn_main_singleserver=0x7f0b0011;
         public static final int feature_coming_soon=0x7f0b0013;
         public static final int feature_coming_soon_confirm=0x7f0b0014;
         public static final int hello_world=0x7f0b000e;
         public static final int hint_SS_Info=0x7f0b0018;
+        public static final int title_activity_get_new_resources=0x7f0b001f;
         public static final int title_activity_settings=0x7f0b0019;
         public static final int title_activity_show_settings=0x7f0b001a;
         public static final int title_activity_single_server_checker=0x7f0b0015;
+        public static final int title_activity_test_ftpmode=0x7f0b001b;
+        public static final int title_activity_update_resource=0x7f0b001e;
+        public static final int title_activity_update_resources=0x7f0b0020;
+        public static final int tv_warning_resource=0x7f0b0021;
         public static final int txt_SS_Info=0x7f0b0017;
     }
     public static final class style {

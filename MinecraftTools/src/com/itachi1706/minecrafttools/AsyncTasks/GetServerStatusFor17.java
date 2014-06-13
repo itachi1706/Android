@@ -1,4 +1,4 @@
-package com.itachi1706.minecrafttools;
+package com.itachi1706.minecrafttools.AsyncTasks;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -10,9 +10,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.itachi1706.minecrafttools.R;
+import com.itachi1706.minecrafttools.PingingUtils.CommonPingTools;
 import com.itachi1706.minecrafttools.PingingUtils.PingServer17;
 import com.itachi1706.minecrafttools.PingingUtils.PingServer17.StatusResponse;
-import com.itachi1706.minecrafttools.SingleServerChecker.ServerChecker17Fragment;
 
 /**
  * Async Task for 1.7 (Experimental)
@@ -50,22 +51,22 @@ public class GetServerStatusFor17 extends AsyncTask <PingServer17, Void, StatusR
 		if (e==null){
 			mbuilder.append("<br />");
 			mbuilder.append("====================================<br />");
-			if (ServerChecker17Fragment.isIP(mIP)){
+			if (CommonPingTools.isIP(mIP)){
 				mbuilder.append("Server Info for " + mAddress.getHostAddress() + "<br />");
 			} else {
 				mbuilder.append("Server Info for " + mAddress.getHostName() + "<br />");
 			}
 			mbuilder.append("====================================<br />");
-			mbuilder.append("<font>MOTD: <b>" + ServerChecker17Fragment.parseFormatting(response.getDescription())  + "</b></font><br />");
+			mbuilder.append("<font>MOTD: <b>" + CommonPingTools.parseFormatting(response.getDescription())  + "</b></font><br />");
 			mbuilder.append("Player: " + response.getPlayers().getOnline() + "/" + response.getPlayers().getMax()  + "<br />");
 			mbuilder.append("MC Version: " + response.getVersion().getName() + " (Protocol Version " + response.getVersion().getProtocol() + ")"  + "<br />");
 			mbuilder.append("Ping: " + response.getTime()  + "<br />");
 			//System.out.println("Favicon: " + response.getFavicon());
-			mContex.findViewById(R.id.pbChkServer).setVisibility(View.GONE);
+			mContex.findViewById(R.id.pbUpdateRes).setVisibility(View.GONE);
 			this.resultView.setText(Html.fromHtml(mbuilder.toString()));
 		} else {
 			Toast.makeText(mContex.getApplication(), "An error occured! (" + e.toString() + ")", Toast.LENGTH_SHORT).show();
-			mContex.findViewById(R.id.pbChkServer).setVisibility(View.GONE);
+			mContex.findViewById(R.id.pbUpdateRes).setVisibility(View.GONE);
 		}
     }
 	

@@ -15,5 +15,12 @@
     <string name="hint_SS_Info">IP:Port (Default Port is 25565)</string>
     <string name="title_activity_settings">Sweg Settings</string>
     <string name="title_activity_show_settings">Display Current Selected Settings</string>
+    <string name="title_activity_test_ftpmode">Testing FTP Connection</string>
+    <string name="btn_ftp_test_conn_label">Connect to FTP Server</string>
+    <string name="btn_ftp_test_conn_dc">Retrive from FTP Server</string>
+    <string name="title_activity_update_resource">Update Resources</string>
+    <string name="title_activity_get_new_resources">Update Resources</string>
+    <string name="title_activity_update_resources">Update Resources</string>
+    <string name="tv_warning_resource">Downloading Resources Now.</string>
 
 </resources>

@@ -1,12 +1,23 @@
 package com.itachi1706.minecrafttools;
 
+import org.apache.commons.net.ftp.FTPClient;
+
+import com.itachi1706.minecrafttools.AsyncTasks.GetNewAppResources;
+
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.NotificationCompat;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -77,6 +88,36 @@ public class MainScreen extends ActionBarActivity {
 					container, false);
 			this.singleServerStatBtn = (Button) rootView.findViewById(R.id.btnStatusSingle);
 			this.ServerStatListBtn = (Button) rootView.findViewById(R.id.btnStatusList);
+			SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
+			if (sharedPrefs.getBoolean("first_boot", true)){
+				Toast.makeText(getActivity().getApplication(), "Initializing First Boot", Toast.LENGTH_LONG).show();
+				NotificationManager notifyManager = (NotificationManager) getActivity().getSystemService(NOTIFICATION_SERVICE);
+				NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(getActivity()).setContentTitle("Refresh Resources")
+						.setContentText("Preparing to refresh resource...").setSmallIcon(R.drawable.ic_launcher);
+				ConnectivityManager connManager = (ConnectivityManager) getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
+				NetworkInfo mWifi = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+				//Update Resources
+				if (sharedPrefs.getBoolean("dl_wifi", true)){
+					if (!mWifi.isConnected()) {
+					    // Do whatever
+						notifyBuilder.setContentText("Please connect to a Wifi Network before continuing");
+						notifyBuilder.setContentTitle("Not Connected To Wifi!");
+						notifyManager.notify(100, notifyBuilder.build());
+						Toast.makeText(getActivity().getApplication(), "Not Connected to Wifi! Please connect to Wifi or uncheck the Download On Wifi setting", Toast.LENGTH_LONG).show();
+						return rootView;
+					}
+				}
+					notifyManager.notify(100, notifyBuilder.build());
+					String serverAddr = "itachi1706.cloudapp.net";
+					int ftpPort = 21;
+					FTPClient ftp = new FTPClient();
+					new GetNewAppResources(getActivity(), serverAddr, ftpPort, notifyManager, notifyBuilder, false).execute(ftp);
+					
+				//Update Database
+					
+					//End off
+					sharedPrefs.edit().putBoolean("first_boot", false).commit();
+			}
 			this.singleServerStatBtn.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View v) {

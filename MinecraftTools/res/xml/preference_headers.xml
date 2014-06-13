@@ -1,29 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
     
-    <PreferenceCategory
-        android:title="Test Settings (Not actually functional)"
-        android:key="first_category">
-
-        <CheckBoxPreference android:key="perform_updates"
-            android:summary="Enable or disable data updates"
-            android:title="Enable updates"
-            android:defaultValue="true"/>
-        <Preference 
-            android:key="start_intent_android_com"
-           	android:title="Intent Test"
-            android:summary="Launches an start browser Intent (www.android.com)">
-            <intent
-             android:action="android.intent.action.VIEW"
-             android:data="http://www.android.com"/>
+    <PreferenceCategory android:title="Settings" android:key="settings_cat">
+        <CheckBoxPreference android:title="Download On Wifi" android:key="dl_wifi" android:summary="Only Updates Resources on WiFi" android:defaultValue="true"/>
+    <Preference android:key="start_intent_android_res_update" android:title="Refresh Resources" android:summary="Reobtain resources from the server">
+            <intent android:action="android.intent.action.VIEW" android:targetPackage="com.itachi1706.minecrafttools" android:targetClass="com.itachi1706.minecrafttools.UpdateResources" />
        	</Preference>
-        
-        
-    <EditTextPreference android:key="welcome_message" android:title="Welcome Message" android:summary="Define the Welcome message to be shown" android:dialogTitle="Welcome Message" android:dialogMessage="Provide a message" android:defaultValue="Default welcome message" /></PreferenceCategory>  
+    <Preference android:key="start_intent_android_db_update" android:title="Updates Database" android:summary="Repopulate Database from the server">
+            <intent android:action="android.intent.action.VIEW" android:targetPackage="com.itachi1706.minecrafttools" android:targetClass="com.itachi1706.minecrafttools.TestFTPMode" />
+       	</Preference>
+    <CheckBoxPreference android:title="First Boot" android:key="first_boot" android:summary="Determines if to undergo First Boot or not (Note: Restart the app to continue)" android:defaultValue="true"/>   	
+       	</PreferenceCategory>  
     
     
-            <PreferenceCategory android:title="About" android:key="info_category"><Preference android:title="App Version" android:key="view_app_version" android:summary="NULL" />
+            <PreferenceCategory android:title="App Info" android:key="info_category"><Preference android:title="App Version" android:key="view_app_version" android:summary="NULL" />
             <Preference android:title="Package Name" android:key="view_app_name"/>
+            
+            <Preference android:summary="None" android:title="Android Version" android:key="view_sdk_version"/>
+</PreferenceCategory><PreferenceCategory android:title="Device Info" android:key="dev_info">
+    <Preference android:title="Board" android:key="view_board_ver" android:summary="Unavailable"/>
+    <Preference android:title="Bootloader" android:key="view_bootloader_ver" android:summary="Unavailable"/>
+    <Preference android:title="Brand" android:key="view_brand_ver" android:summary="Unavailable"/>
+    <Preference android:title="CPU Type" android:key="view_cpu1_ver" android:summary="Unavailable"/>
+    <Preference android:title="CPU Type 2" android:key="view_cpu2_ver" android:summary="Unavailable"/>
+    <Preference android:title="Device" android:key="view_device_ver" android:summary="Unavailable"/>
+    <Preference android:title="Build ID" android:key="view_display_ver" android:summary="Unavailable"/>
+    <Preference android:title="Fingerprint" android:key="view_fingerprint_ver" android:summary="Unavailable"/>
+    <Preference android:title="Hardware" android:key="view_hardware_ver" android:summary="Unavailable"/>
+    <Preference android:title="Host" android:key="view_host_ver" android:summary="Unavailable"/>
+    <Preference android:title="Product ID" android:key="view_id_ver" android:summary="Unavailable"/>
+    <Preference android:title="Manufacturer" android:key="view_manufacturer_ver" android:summary="Unavailable"/>
+    <Preference android:title="Model" android:key="view_model_ver" android:summary="Unavailable"/>
+    <Preference android:title="Product" android:key="view_product_ver" android:summary="Unavailable"/>
+    <Preference android:title="Radio" android:key="view_radio_ver" android:summary="Unavailable"/>
+    <Preference android:title="Serial" android:key="view_serial_ver" android:summary="Unavailable"/>
+    <Preference android:title="Tags" android:key="view_tags_ver" android:summary="Unavailable"/>
+    <Preference android:title="Type" android:key="view_type_ver" android:summary="Unavailable"/>
+    <Preference android:title="User" android:key="view_user_ver" android:summary="Unavailable"/>
+</PreferenceCategory><PreferenceCategory android:title="Test Settings (Not actually functional)" android:key="first_category">
+
+        <CheckBoxPreference android:key="perform_updates" android:summary="Enable or disable data updates" android:title="Enable updates" android:defaultValue="true" />
+        <Preference android:key="start_intent_android_com" android:title="Intent Test" android:summary="Launches an start browser Intent (www.android.com)">
+            <intent android:action="android.intent.action.VIEW" android:data="http://www.android.com" />
+       	</Preference>
+       	<Preference android:key="start_intent_android_ftp_test" android:title="FTP Test" android:summary="Goes to the FTP intent test">
+            <intent android:action="android.intent.action.VIEW" android:targetPackage="com.itachi1706.minecrafttools" android:targetClass="com.itachi1706.minecrafttools.TestFTPMode" />
+       	</Preference>
+       	
+        
+        
+    <EditTextPreference android:key="welcome_message" android:title="Welcome Message" android:summary="Define the Welcome message to be shown" android:dialogTitle="Welcome Message" android:dialogMessage="Provide a message" android:defaultValue="Default welcome message" />
+    
 </PreferenceCategory>
     
 
