@@ -3,6 +3,7 @@ package com.itachi1706.minecrafttools;
 import org.apache.commons.net.ftp.FTPClient;
 
 import com.itachi1706.minecrafttools.AsyncTasks.GetNewAppResources;
+import com.itachi1706.minecrafttools.Random.FeatureComingSoonDialog;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.DialogFragment;
@@ -135,10 +136,11 @@ public class MainScreen extends ActionBarActivity {
 				public void onClick(View v) {
 					//View Server List (List View)
 					//Intent intent = new Intent();
-					FragmentManager fm = getActivity().getSupportFragmentManager();
+					startActivity(new Intent(getActivity(), ServerListActivity.class));
+					/*FragmentManager fm = getActivity().getSupportFragmentManager();
 					DialogFragment dialog = new FeatureComingSoonDialog();
 					Toast.makeText(getActivity().getApplication(), "Feature Coming Soon!", Toast.LENGTH_SHORT).show();
-					dialog.show(fm, "comingsoon");
+					dialog.show(fm, "comingsoon");*/
 				}
 			});
 			return rootView;

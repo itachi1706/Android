@@ -170,7 +170,7 @@ public class SingleServerChecker extends ActionBarActivity implements android.ap
 					R.layout.fragment_single_server_checker, container, false);
 			this.checkServerBtn = (Button) rootView.findViewById(R.id.btnSubmit);
 			this.resultView = (TextView) rootView.findViewById(R.id.tvResult);
-			this.addressView = (TextView) rootView.findViewById(R.id.serverAddress);
+			this.addressView = (TextView) rootView.findViewById(R.id.serverAddressAdd);
 			this.versionView = (TextView) rootView.findViewById(R.id.tvVersion);
 			versionView.setText("For MC 1.7 and above");
 			this.checkServerBtn.setOnClickListener(this);
@@ -260,7 +260,7 @@ public class SingleServerChecker extends ActionBarActivity implements android.ap
 					R.layout.fragment_single_server_checker, container, false);
 			this.checkServerBtn = (Button) rootView.findViewById(R.id.btnSubmit);
 			this.resultView = (TextView) rootView.findViewById(R.id.tvResult);
-			this.addressView = (TextView) rootView.findViewById(R.id.serverAddress);
+			this.addressView = (TextView) rootView.findViewById(R.id.serverAddressAdd);
 			this.versionView = (TextView) rootView.findViewById(R.id.tvVersion);
 			versionView.setText("For MC 1.6 only");
 			this.checkServerBtn.setOnClickListener(this);

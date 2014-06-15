@@ -1,5 +1,6 @@
-package com.itachi1706.minecrafttools;
+package com.itachi1706.minecrafttools.Random;
 
+import com.itachi1706.minecrafttools.R;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;

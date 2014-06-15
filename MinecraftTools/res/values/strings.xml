@@ -4,6 +4,7 @@
     <string name="app_name">MinecraftTools</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Sweg Settings</string>
+    <string name="action_refresh">Refresh</string>
     <string name="app_welcome">Welcome to Minecraft Tools! Select an option!</string>
     <string name="btn_main_singleserver">Server Status (Single)</string>
     <string name="btn_main_multiserverlist">Server Status List</string>
@@ -22,5 +23,14 @@
     <string name="title_activity_get_new_resources">Update Resources</string>
     <string name="title_activity_update_resources">Update Resources</string>
     <string name="tv_warning_resource">Downloading Resources Now.</string>
+    <string name="title_activity_web_game2048">2048 Game</string>
+    <string name="title_activity_server_list">Server List</string>
+    <string name="server_list_tb">Enter new IP Address and Port (Default Port is 25565)</string>
+    <string name="btnServerList_Add">Add</string>
+    <string name="tvServerList_Hint">IP:Port</string>
+    <string name="default_17">1.7</string>
+    <string name="default_16">1.6</string>
+    <string name="default_server_list_get">Getting Server Info\.\.\.</string>
+    <string name="default_server_player_wait">xxxxx/xxxxx</string>
 
 </resources>

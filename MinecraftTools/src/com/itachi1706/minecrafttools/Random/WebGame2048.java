@@ -1,8 +1,7 @@
-package com.itachi1706.minecrafttools;
+package com.itachi1706.minecrafttools.Random;
 
-import com.itachi1706.minecrafttools.FTPTest.ConAndDLFileFromFtpServer;
-import com.itachi1706.minecrafttools.FTPTest.ConAndListFilesFromFtpServer;
-
+import com.itachi1706.minecrafttools.R;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -11,15 +10,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TextView;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 
-public class TestFTPMode extends Activity {
+public class WebGame2048 extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_test_ftpmode);
+		setContentView(R.layout.activity_web_game2048);
 
 		if (savedInstanceState == null) {
 			getFragmentManager().beginTransaction()
@@ -31,7 +30,7 @@ public class TestFTPMode extends Activity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.test_ftpmode, menu);
+		getMenuInflater().inflate(R.menu.web_game2048, menu);
 		return true;
 	}
 
@@ -51,26 +50,22 @@ public class TestFTPMode extends Activity {
 	 * A placeholder fragment containing a simple view.
 	 */
 	public static class PlaceholderFragment extends Fragment {
+		
+		WebView webContainer;
 
 		public PlaceholderFragment() {
 		}
 
-		private Button connectBtn;
-		private Button dcBtn;
-		private TextView fileListView;
-		private Activity act;
-		
+		@SuppressLint("SetJavaScriptEnabled")
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-			View rootView = inflater.inflate(R.layout.fragment_test_ftpmode,
+			View rootView = inflater.inflate(R.layout.fragment_web_game2048,
 					container, false);
-			this.connectBtn = (Button) rootView.findViewById(R.id.btnFTPTestConnect);
-			this.dcBtn = (Button) rootView.findViewById(R.id.btnFTPTestDL);
-			act = this.getActivity();
-			this.fileListView = (TextView) rootView.findViewById(R.id.tvFTPFilesResult);
-			this.connectBtn.setOnClickListener(new ConAndListFilesFromFtpServer(fileListView, act));
-			this.dcBtn.setOnClickListener(new ConAndDLFileFromFtpServer(fileListView, act));
+			this.webContainer = (WebView) rootView.findViewById(R.id.wv2048);
+			webContainer.loadUrl("itachi1706steam.cloudapp.net/2048/default/index.html");
+			WebSettings webSet = webContainer.getSettings();
+			webSet.setJavaScriptEnabled(true);
 			return rootView;
 		}
 	}

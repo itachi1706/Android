@@ -14,11 +14,11 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tvInfo"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/serverAddress"
+        android:layout_alignRight="@+id/serverAddressAdd"
         android:layout_below="@+id/btnSubmit" />
 
     <EditText
-        android:id="@+id/serverAddress"
+        android:id="@+id/serverAddressAdd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -36,8 +36,8 @@
         android:id="@+id/tvInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/serverAddress"
-        android:layout_below="@+id/serverAddress"
+        android:layout_alignLeft="@+id/serverAddressAdd"
+        android:layout_below="@+id/serverAddressAdd"
         android:text="@string/txt_SS_Info" />
 
     <Button

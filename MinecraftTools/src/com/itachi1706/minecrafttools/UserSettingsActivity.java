@@ -1,5 +1,7 @@
 package com.itachi1706.minecrafttools;
 
+import com.itachi1706.minecrafttools.Random.WebGame2048;
+
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -27,6 +29,7 @@ public class UserSettingsActivity extends PreferenceActivity{
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         menu.add(Menu.NONE, 0, 0, "Show current inserted");
+        menu.add(Menu.NONE, 1, 0, "2048 Game! (Needs Internet Connection)");
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -36,6 +39,9 @@ public class UserSettingsActivity extends PreferenceActivity{
             case 0:
                 startActivity(new Intent(this, ShowSettingsActivity.class));
                 return true;
+            case 1:
+            	startActivity(new Intent(this, WebGame2048.class));
+            	return true;
         }
         return false;
     }
