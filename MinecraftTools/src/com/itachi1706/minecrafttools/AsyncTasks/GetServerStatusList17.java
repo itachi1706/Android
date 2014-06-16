@@ -48,6 +48,8 @@ public class GetServerStatusList17 extends AsyncTask <String, Void, StatusRespon
 			playerView.setText(Html.fromHtml("<font color=#55FF55>" + response.getPlayers().getOnline() + "</font><font color='#AAAAAA'>/</font><font color=#FF5555>" + response.getPlayers().getMax() + "</font>"));
 		} else {
 			Toast.makeText(mContex.getContext(), "An error occured! (" + e.toString() + ")", Toast.LENGTH_SHORT).show();
+			motdView.setText(Html.fromHtml("<font color='#FF5555'>Unable to get server info!</font>"));
+			playerView.setText(Html.fromHtml("<font color=#FF5555>?????</font><font color='#AAAAAA'>/</font><font color=#FF5555>?????</font>"));
 			//mContex.findViewById(R.id.pBServerList).setVisibility(View.GONE);
 		}
     }

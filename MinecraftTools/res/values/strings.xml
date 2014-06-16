@@ -32,5 +32,10 @@
     <string name="default_16">1.6</string>
     <string name="default_server_list_get">Getting Server Info\.\.\.</string>
     <string name="default_server_player_wait">xxxxx/xxxxx</string>
+    <string name="serv_list_con_item_1">Select</string>
+    <string name="serv_list_con_item_2">Rename</string>
+    <string name="serv_list_con_item_3">Delete</string>
+    <string name="title_activity_populate_database">Populate Database</string>
+    <string name="btnMcItemTable">Go to MCItems Table (Internet Required)</string>
 
 </resources>

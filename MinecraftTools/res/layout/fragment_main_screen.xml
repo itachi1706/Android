@@ -36,7 +36,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnStatusSingle"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="44dp"
         android:text="@string/btn_main_multiserverlist" />
+
+    <Button
+        android:id="@+id/btnMcItemTable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnStatusList"
+        android:layout_centerHorizontal="true"
+        android:text="@string/btnMcItemTable" />
 
 </RelativeLayout>

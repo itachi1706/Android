@@ -69,6 +69,10 @@
             android:name="com.itachi1706.minecrafttools.ServerListActivity"
             android:label="@string/title_activity_server_list" >
         </activity>
+        <activity
+            android:name="com.itachi1706.minecrafttools.PopulateDatabase"
+            android:label="@string/title_activity_populate_database" >
+        </activity>
     </application>
 
 </manifest>

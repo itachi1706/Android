@@ -3,12 +3,8 @@ package com.itachi1706.minecrafttools;
 import org.apache.commons.net.ftp.FTPClient;
 
 import com.itachi1706.minecrafttools.AsyncTasks.GetNewAppResources;
-import com.itachi1706.minecrafttools.Random.FeatureComingSoonDialog;
-
 import android.support.v7.app.ActionBarActivity;
-import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.NotificationCompat;
 import android.app.NotificationManager;
 import android.content.Context;
@@ -81,6 +77,7 @@ public class MainScreen extends ActionBarActivity {
 		
 		private Button singleServerStatBtn;
 		private Button ServerStatListBtn;
+		private Button McListTableBtn;
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -89,6 +86,7 @@ public class MainScreen extends ActionBarActivity {
 					container, false);
 			this.singleServerStatBtn = (Button) rootView.findViewById(R.id.btnStatusSingle);
 			this.ServerStatListBtn = (Button) rootView.findViewById(R.id.btnStatusList);
+			this.McListTableBtn = (Button) rootView.findViewById(R.id.btnMcItemTable);
 			SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getActivity());
 			if (sharedPrefs.getBoolean("first_boot", true)){
 				Toast.makeText(getActivity().getApplication(), "Initializing First Boot", Toast.LENGTH_LONG).show();
@@ -137,6 +135,19 @@ public class MainScreen extends ActionBarActivity {
 					//View Server List (List View)
 					//Intent intent = new Intent();
 					startActivity(new Intent(getActivity(), ServerListActivity.class));
+					/*FragmentManager fm = getActivity().getSupportFragmentManager();
+					DialogFragment dialog = new FeatureComingSoonDialog();
+					Toast.makeText(getActivity().getApplication(), "Feature Coming Soon!", Toast.LENGTH_SHORT).show();
+					dialog.show(fm, "comingsoon");*/
+				}
+			});
+			this.McListTableBtn.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+					//View Server List (List View)
+					//Intent intent = new Intent();
+					startActivity(new Intent(getActivity(), PopulateDatabase.class));
 					/*FragmentManager fm = getActivity().getSupportFragmentManager();
 					DialogFragment dialog = new FeatureComingSoonDialog();
 					Toast.makeText(getActivity().getApplication(), "Feature Coming Soon!", Toast.LENGTH_SHORT).show();
