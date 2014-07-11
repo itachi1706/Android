@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.itachi1706.minecrafttools"
     android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionName="0.0.0 indev 13" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -44,25 +44,17 @@
             android:label="@string/title_activity_show_settings" >
         </activity>
         <activity
-            android:name="com.itachi1706.minecrafttools.FTPTest.TestFTPMode"
+            android:name="com.itachi1706.minecrafttools.ftptest.TestFTPMode"
             android:configChanges="orientation"
             android:label="@string/title_activity_test_ftpmode"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name="com.itachi1706.minecrafttools.UpdateResource"
-            android:label="@string/title_activity_update_resource" >
-        </activity>
-        <activity
-            android:name="com.itachi1706.minecrafttools.GetNewResources"
-            android:label="@string/title_activity_get_new_resources" >
-        </activity>
-        <activity
             android:name="com.itachi1706.minecrafttools.UpdateResources"
-            android:label="@string/title_activity_update_resources" >
+            android:label="@string/title_activity_update_resources" android:configChanges="orientation" android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="com.itachi1706.minecrafttools.Random.WebGame2048"
+            android:name="com.itachi1706.minecrafttools.random.WebGame2048"
             android:label="@string/title_activity_web_game2048" >
         </activity>
         <activity
@@ -70,8 +62,12 @@
             android:label="@string/title_activity_server_list" >
         </activity>
         <activity
-            android:name="com.itachi1706.minecrafttools.PopulateDatabase"
-            android:label="@string/title_activity_populate_database" >
+            android:name="com.itachi1706.minecrafttools.GetMcItemList"
+            android:label="@string/title_activity_populate_database" android:configChanges="orientation" android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name="com.itachi1706.minecrafttools.UpdateDatabase"
+            android:label="@string/title_activity_update_database" android:configChanges="orientation" android:screenOrientation="portrait">
         </activity>
     </application>
 

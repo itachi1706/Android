@@ -1,4 +1,4 @@
-package com.itachi1706.minecrafttools.Random;
+package com.itachi1706.minecrafttools.random;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

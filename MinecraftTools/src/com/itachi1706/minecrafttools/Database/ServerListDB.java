@@ -40,7 +40,7 @@ public class ServerListDB extends SQLiteOpenHelper{
 					 + KEY_SERVER_ADDR + " VARCHAR(100) NOT NULL," + KEY_SERVER_PORT + " INTEGER DEFAULT 25565," + KEY_SERVER_VER + " VARCHAR(10) NOT NULL," +
 					KEY_SERVER_NAME + " TEXT NULL)";
 			db.execSQL(CREATE_TABLE_SCAN);
-//			firstBoot();
+			//firstBoot();
 			Log.d("DB: ", "Table created.");
 		}
 		

@@ -7,7 +7,7 @@
             <intent android:action="android.intent.action.VIEW" android:targetPackage="com.itachi1706.minecrafttools" android:targetClass="com.itachi1706.minecrafttools.UpdateResources" />
        	</Preference>
     <Preference android:key="start_intent_android_db_update" android:title="Updates Database" android:summary="Repopulate Database from the server">
-            <intent android:action="android.intent.action.VIEW" android:targetPackage="com.itachi1706.minecrafttools" android:targetClass="com.itachi1706.minecrafttools.TestFTPMode" />
+            <intent android:action="android.intent.action.VIEW" android:targetPackage="com.itachi1706.minecrafttools" android:targetClass="com.itachi1706.minecrafttools.UpdateDatabase" />
        	</Preference>
     <CheckBoxPreference android:title="First Boot" android:key="first_boot" android:summary="Determines if to undergo First Boot or not (Note: Restart the app to continue)" android:defaultValue="true"/>   	
        	</PreferenceCategory>  

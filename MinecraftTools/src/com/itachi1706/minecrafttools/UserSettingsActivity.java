@@ -1,6 +1,6 @@
 package com.itachi1706.minecrafttools;
 
-import com.itachi1706.minecrafttools.Random.WebGame2048;
+import com.itachi1706.minecrafttools.random.WebGame2048;
 
 import android.content.Intent;
 import android.content.pm.PackageInfo;

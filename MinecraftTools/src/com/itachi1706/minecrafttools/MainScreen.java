@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.NotificationCompat;
 import android.app.NotificationManager;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -106,13 +107,13 @@ public class MainScreen extends ActionBarActivity {
 						return rootView;
 					}
 				}
+				final ProgressDialog ringProgressDialog = ProgressDialog.show(getActivity(), "Updating Resources", "Downloading Resources Now... Please do not exit out of this screen!", true);
+				ringProgressDialog.setCancelable(false);
 					notifyManager.notify(100, notifyBuilder.build());
 					String serverAddr = "itachi1706.cloudapp.net";
 					int ftpPort = 21;
 					FTPClient ftp = new FTPClient();
-					new GetNewAppResources(getActivity(), serverAddr, ftpPort, notifyManager, notifyBuilder, false).execute(ftp);
-					
-				//Update Database
+					new GetNewAppResources(getActivity(), serverAddr, ftpPort, notifyManager, notifyBuilder, false, ringProgressDialog).execute(ftp);
 					
 					//End off
 					sharedPrefs.edit().putBoolean("first_boot", false).commit();
@@ -147,7 +148,7 @@ public class MainScreen extends ActionBarActivity {
 				public void onClick(View v) {
 					//View Server List (List View)
 					//Intent intent = new Intent();
-					startActivity(new Intent(getActivity(), PopulateDatabase.class));
+					startActivity(new Intent(getActivity(), GetMcItemList.class));
 					/*FragmentManager fm = getActivity().getSupportFragmentManager();
 					DialogFragment dialog = new FeatureComingSoonDialog();
 					Toast.makeText(getActivity().getApplication(), "Feature Coming Soon!", Toast.LENGTH_SHORT).show();

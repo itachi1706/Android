@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import com.itachi1706.minecrafttools.Database.ServerList;
 import com.itachi1706.minecrafttools.Database.ServerListDB;
 import com.itachi1706.minecrafttools.PingingUtils.AddANewServerIntoList;
-import com.itachi1706.minecrafttools.Random.EditServerNameDialog;
+import com.itachi1706.minecrafttools.random.EditServerNameDialog;
 
 import android.app.DialogFragment;
 import android.os.Bundle;

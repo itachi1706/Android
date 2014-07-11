@@ -1,4 +1,4 @@
-package com.itachi1706.minecrafttools.FTPTest;
+package com.itachi1706.minecrafttools.ftptest;
 
 import java.io.File;
 import java.io.IOException;

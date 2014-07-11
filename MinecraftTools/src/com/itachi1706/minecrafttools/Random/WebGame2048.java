@@ -1,4 +1,4 @@
-package com.itachi1706.minecrafttools.Random;
+package com.itachi1706.minecrafttools.random;
 
 import com.itachi1706.minecrafttools.R;
 import android.annotation.SuppressLint;

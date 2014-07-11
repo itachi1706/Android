@@ -15,6 +15,7 @@ import com.itachi1706.minecrafttools.UpdateResources;
 
 import android.app.Activity;
 import android.app.NotificationManager;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.support.v4.app.NotificationCompat;
 import android.view.View;
@@ -35,19 +36,20 @@ public class GetNewAppResources extends AsyncTask <FTPClient, Void, Boolean>{
 	int start = 0;
 	FTPFile currentFile;
 	boolean manual=false;
+	ProgressDialog progres;
 	
-	public GetNewAppResources(Activity activity, String serveraddress, int ftpPortNo, NotificationManager manager, NotificationCompat.Builder builder, boolean manua){
+	public GetNewAppResources(Activity activity, String serveraddress, int ftpPortNo, NotificationManager manager, NotificationCompat.Builder builder, boolean manua, ProgressDialog progresser){
 		this.mActivity=activity;
 		this.serverAddr=serveraddress;
 		this.ftpPort=ftpPortNo;
 		this.notifyManager=manager;
 		this.notifyBuilder=builder;
 		this.manual=manua;
+		this.progres=progresser;
 	}
 	
 	@Override
 	protected Boolean doInBackground(FTPClient... ftpclients) {
-		// 
 		if (manual){
 			mActivity.findViewById(R.id.pbUpdateRes).setVisibility(View.VISIBLE);
 		}
@@ -128,11 +130,17 @@ public class GetNewAppResources extends AsyncTask <FTPClient, Void, Boolean>{
 	protected void onProgressUpdate(Void... progress) {
 		if (manual){
 			if (start == 1){
-				UpdateResources.PlaceholderFragment.progressUpdate("Downloading updated resource files " + currentFile.getName() + " ...");
+				UpdateResources.PlaceholderFragment.progressUpdate("");
+				progres.setMessage("Downloading updated resource files " + currentFile.getName() + " ...");
 			} else if (start == 0){
 				UpdateResources.PlaceholderFragment.progressUpdate("");
 			} else {
 				UpdateResources.PlaceholderFragment.progressUpdate("Download Complete! You can now leave this page by pressing the Back Button :D");
+			}
+		}
+		else {
+			if (start == 1){
+				progres.setMessage("Downloading updated resource files " + currentFile.getName() + " ...\nPlease do not exit out of this screen!");
 			}
 		}
     }
@@ -140,18 +148,26 @@ public class GetNewAppResources extends AsyncTask <FTPClient, Void, Boolean>{
 	public void onPostExecute(Boolean response) {
 		if (!response){
 			//Error handling
+			progres.dismiss();
 			notifyBuilder.setContentText(errorMsg).setContentTitle("Error downloading resources!");
 			notifyManager.notify(notifyId, notifyBuilder.build());
 			Toast.makeText(mActivity.getApplication(), "An error occured. Check the notification for more info", Toast.LENGTH_LONG).show();
 		} else if (e==null){
 			//Success handling
+			progres.dismiss();
 			notifyBuilder.setContentText("Download complete!").setContentTitle("Resource Download Complete!");
 			notifyManager.notify(notifyId, notifyBuilder.build());
 			if (manual){
 				mActivity.findViewById(R.id.pbUpdateRes).setVisibility(View.GONE);
+			} else {
+				//Update database next
+				final ProgressDialog ringProgressDialog2 = ProgressDialog.show(mActivity, "Updating Database", "Updating Item Database Now... Please do not exit out of this screen!", true);
+				ringProgressDialog2.setCancelable(false);
+				new UpdateItemList(mActivity, false, ringProgressDialog2).execute("");
 			}
 			Toast.makeText(mActivity.getApplication(), "Resources downloaded successfully", Toast.LENGTH_LONG).show();
 		} else {
+			progres.dismiss();
 			notifyBuilder.setContentText("Something went wrong. Please report this to the dev!").setContentTitle("Unhandled Exception!");
 			notifyManager.notify(notifyId, notifyBuilder.build());
 			Toast.makeText(mActivity.getApplication(), "An error occured. Check the notification for more info", Toast.LENGTH_LONG).show();

@@ -7,6 +7,7 @@ import com.itachi1706.minecrafttools.AsyncTasks.GetNewAppResources;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.NotificationManager;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
@@ -94,7 +95,9 @@ public class UpdateResources extends Activity {
 				String serverAddr = "itachi1706.cloudapp.net";
 				int ftpPort = 21;
 				FTPClient ftp = new FTPClient();
-				new GetNewAppResources(act, serverAddr, ftpPort, notifyManager, notifyBuilder, true).execute(ftp);
+				final ProgressDialog ringProgressDialog = ProgressDialog.show(getActivity(), "Updating Resources", "Downloading Resources Now...", true);
+				ringProgressDialog.setCancelable(false);
+				new GetNewAppResources(act, serverAddr, ftpPort, notifyManager, notifyBuilder, true, ringProgressDialog).execute(ftp);
 			return rootView;
 		}
 		
