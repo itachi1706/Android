@@ -51,5 +51,14 @@ String c;
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent myintent){
+		super.onActivityResult(requestCode, resultCode, myintent);
+		if (requestCode == 1 && resultCode == Activity.RESULT_OK){
+			points = myintent.getIntExtra("data", 0);
+			a.setText("pointsss : " + points);
+		}
+	}
 
 }
