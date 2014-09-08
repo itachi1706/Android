@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Check Barcode Validity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="btnScan">Scan 1st Barcode</string>
+    <string name="btnScan2">Scan 2nd Barcode</string>
+
+</resources>
