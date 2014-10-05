@@ -1,0 +1,23 @@
+id
+sub_id
+name
+obtainable_normally (Can obtain in survival)
+
+-- New Stuff --
+isCraftable TINYINT(1)
+
+craftSlot1 VARCHAR(10)
+craftSlot2 VARCHAR(10)
+craftSlot3 VARCHAR(10)
+craftSlot4 VARCHAR(10)
+craftSlot5 VARCHAR(10)
+craftSlot6 VARCHAR(10)
+craftSlot7 VARCHAR(10)
+craftSlot8 VARCHAR(10)
+craftSlot9 VARCHAR(10)
+ 
+isSmeltable TINYINT(1)
+smeltWith VARCHAR(10)
+
+imgUrl VARCHAR(50)
+descUrl VARCHAR(50)
