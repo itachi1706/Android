@@ -13,6 +13,7 @@ local.properties
 .loadpath
 IPCamerDemo/*
 NgeeAnnFoodService/*
+NgeeAnnFoodService/
 
 # External tool builders
 .externalToolBuilders/
