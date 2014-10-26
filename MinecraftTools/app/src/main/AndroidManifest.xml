@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.itachi1706.minecrafttools" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainScreen"
+            android:label="@string/app_name"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".GetMcItemList"
+            android:label="@string/title_activity_get_mc_item_list"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ServerListActivity"
+            android:label="@string/title_activity_server_list"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ShowSettingsActivity"
+            android:label="@string/title_activity_show_settings"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".SingleServerChecker"
+            android:label="@string/title_activity_single_server_checker"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".UpdateDatabase"
+            android:label="@string/title_activity_update_database"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".UpdateResources"
+            android:label="@string/title_activity_update_resources"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".UserSettingsActivity"
+            android:label="@string/title_activity_user_settings"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".random.WebGame2048"
+            android:label="@string/title_activity_web_game2048"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".ftptest.TestFTPMode"
+            android:label="@string/title_activity_test_ftpmode"
+            android:configChanges="orientation"
+            android:screenOrientation="portrait">
+        </activity>
+    </application>
+
+</manifest>

@@ -1,0 +1,42 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.0.2"
+
+    defaultConfig {
+        applicationId "com.itachi1706.minecrafttools"
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionCode 1
+        versionName "0.0.0 indev 13"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+    }
+}
+
+repositories {
+    maven { url 'http://svn.apache.org/repos/asf/commons/proper/io/trunk/' }
+    maven { url 'http://svn.apache.org/repos/asf/commons/proper/net/trunk/'}
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:support-v4:21.0.0'
+    compile 'com.google.code.gson:gson:2.3'
+    compile 'com.squareup.assertj:assertj-android-appcompat-v7:1.0.0'
+    compile 'org.apache.directory.studio:org.apache.commons.io:2.4'
+    compile 'org.apache.ant:ant-commons-net:1.9.4'
+}
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MinecraftTools</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_get_mc_item_list">GetMcItemList</string>
+    <string name="title_activity_single_server_checker">SingleServerChecker</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="app_welcome">Welcome to Minecraft Tools! Select an option!</string>
+    <string name="btn_main_singleserver">Server Status (Single)</string>
+    <string name="btn_main_multiserverlist">Server Status List</string>
+    <string name="feature_coming_soon">This feature will be implemented soon!</string>
+    <string name="feature_coming_soon_confirm">OK</string>
+    <string name="btnSubmit">Submit</string>
+    <string name="txt_SS_Info">Enter IP Address and Port (If any):</string>
+    <string name="hint_SS_Info">IP:Port (Default Port is 25565)</string>
+    <string name="title_activity_settings">Sweg Settings</string>
+    <string name="title_activity_show_settings">Display Current Selected Settings</string>
+    <string name="title_activity_test_ftpmode">Testing FTP Connection</string>
+    <string name="btn_ftp_test_conn_label">Connect to FTP Server</string>
+    <string name="btn_ftp_test_conn_dc">Retrive from FTP Server</string>
+    <string name="title_activity_update_resource">Update Resources</string>
+    <string name="title_activity_get_new_resources">Update Resources</string>
+    <string name="title_activity_update_resources">Update Resources</string>
+    <string name="tv_warning_resource">Downloading Resources Now.</string>
+    <string name="title_activity_web_game2048">2048 Game</string>
+    <string name="title_activity_server_list">Server List</string>
+    <string name="server_list_tb">Enter new IP Address and Port (Default Port is 25565)</string>
+    <string name="btnServerList_Add">Add</string>
+    <string name="tvServerList_Hint">IP:Port</string>
+    <string name="default_17">1.7</string>
+    <string name="default_16">1.6</string>
+    <string name="default_server_list_get">Getting Server Info\.\.\.</string>
+    <string name="default_server_player_wait">xxxxx/xxxxx</string>
+    <string name="serv_list_con_item_1">Select</string>
+    <string name="serv_list_con_item_2">Rename</string>
+    <string name="serv_list_con_item_3">Delete</string>
+    <string name="title_activity_populate_database">MC Item List</string>
+    <string name="btnMcItemTable">List of Items in Minecraft</string>
+    <string name="title_activity_update_database">Update Database</string>
+    <string name="default_value_item_name">\'Item Name Here\'</string>
+    <string name="default_value_item_id">-</string>
+    <string name="default_value_item_id_name">minecraft:</string>
+    <string name="default_value_item_pic_con_des">-</string>
+
+</resources>
