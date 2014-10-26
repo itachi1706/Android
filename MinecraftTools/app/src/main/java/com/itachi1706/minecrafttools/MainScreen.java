@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.view.LayoutInflater;
@@ -22,6 +23,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.itachi1706.minecrafttools.AsyncTasks.GetNewAppResources;
+import com.itachi1706.minecrafttools.Database.ServerListDB;
 
 import org.apache.commons.net.ftp.FTPClient;
 
@@ -35,6 +37,12 @@ public class MainScreen extends Activity {
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
+        }
+
+        //Hacked disable strict mode for network processes (Might fix this instead of doing this in the future)
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
         }
     }
 
@@ -104,7 +112,7 @@ public class MainScreen extends Activity {
                 int ftpPort = 21;
                 FTPClient ftp = new FTPClient();
                 new GetNewAppResources(getActivity(), serverAddr, ftpPort, notifyManager, notifyBuilder, false, ringProgressDialog).execute(ftp);
-
+                new ServerListDB(rootView.getContext()).dropTableAndRenew();
                 //End off
                 sharedPrefs.edit().putBoolean("first_boot", false).apply();
             }

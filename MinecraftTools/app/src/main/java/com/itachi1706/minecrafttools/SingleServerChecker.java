@@ -2,6 +2,7 @@ package com.itachi1706.minecrafttools;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.Notification;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;

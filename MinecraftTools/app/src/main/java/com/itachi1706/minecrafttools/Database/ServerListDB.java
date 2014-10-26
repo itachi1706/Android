@@ -55,6 +55,12 @@ public class ServerListDB extends SQLiteOpenHelper{
 			db.insert(TABLE_SERVER, null, values);
 			db.close();
 		}
+
+        public void dropTableAndRenew(){
+            SQLiteDatabase db = this.getWritableDatabase();
+            db.execSQL("DROP TABLE IF EXISTS " + TABLE_SERVER);
+            onCreate(db);
+        }
 		
 		@Override
 		public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
@@ -100,7 +106,7 @@ public class ServerListDB extends SQLiteOpenHelper{
 			//Select all
 			String selectQuery = "SELECT * FROM " + TABLE_SERVER;
 			SQLiteDatabase db =  this.getWritableDatabase();
-.			Cursor cursor = db.rawQuery(selectQuery, null);
+			Cursor cursor = db.rawQuery(selectQuery, null);
 
 			//Loop through and add to list (id, server address, port, name
 			if (cursor.moveToFirst()){
