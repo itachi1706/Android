@@ -17,7 +17,7 @@
             <Preference android:title="Package Name" android:key="view_app_name"/>
             
             <Preference android:summary="None" android:title="Android Version" android:key="view_sdk_version"/>
-</PreferenceCategory><PreferenceCategory android:title="Device Info" android:key="dev_info">
+    </PreferenceCategory><PreferenceCategory android:title="Device Info" android:key="dev_info">
     <Preference android:title="Board" android:key="view_board_ver" android:summary="Unavailable"/>
     <Preference android:title="Bootloader" android:key="view_bootloader_ver" android:summary="Unavailable"/>
     <Preference android:title="Brand" android:key="view_brand_ver" android:summary="Unavailable"/>
