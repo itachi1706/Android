@@ -1,6 +1,7 @@
 .metadata/
 *.pydevproject
 .metadata
+.idea
 .gradle
 bin/
 tmp/
@@ -14,6 +15,8 @@ local.properties
 IPCamerDemo/*
 NgeeAnnFoodService/*
 NgeeAnnFoodService/
+HypixelStatistics
+HypixelStatistics/*
 
 # External tool builders
 .externalToolBuilders/
