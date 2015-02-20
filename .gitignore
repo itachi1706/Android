@@ -12,11 +12,12 @@ tmp/
 local.properties
 .settings/
 .loadpath
-IPCamerDemo/*
 NgeeAnnFoodService/*
 NgeeAnnFoodService/
 HypixelStatistics
 HypixelStatistics/*
+SteamMD
+SteamMD/*
 
 # External tool builders
 .externalToolBuilders/
