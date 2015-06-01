@@ -12,6 +12,8 @@ tmp/
 local.properties
 .settings/
 .loadpath
+
+# Projects with their own repository
 NgeeAnnFoodService/*
 NgeeAnnFoodService/
 HypixelStatistics
@@ -24,6 +26,8 @@ HTCSerialIdentification
 HTCSerialIdentification/*
 BypassPasswordAPI17PenTest
 BypassPasswordAPI17PenTest/*
+DroidEggs
+DroidEggs/*
 
 # External tool builders
 .externalToolBuilders/
