@@ -28,6 +28,8 @@ BypassPasswordAPI17PenTest
 BypassPasswordAPI17PenTest/*
 DroidEggs
 DroidEggs/*
+MoneyManager
+MoneyManager/*
 
 # External tool builders
 .externalToolBuilders/
