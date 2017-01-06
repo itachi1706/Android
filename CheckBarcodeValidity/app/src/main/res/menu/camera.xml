@@ -1,0 +1,11 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+    <item android:id="@+id/action_flash"
+        android:title="Use Flash"
+        android:checkable="true"
+        android:checked="false"
+        android:orderInCategory="100"
+        app:showAsAction="never" />
+</menu>

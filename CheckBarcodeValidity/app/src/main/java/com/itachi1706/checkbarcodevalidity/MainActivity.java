@@ -1,6 +1,5 @@
 package com.itachi1706.checkbarcodevalidity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -13,10 +12,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.api.CommonStatusCodes;
 import com.google.android.gms.vision.barcode.Barcode;
-import com.google.android.gms.vision.barcode.BarcodeDetector;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private boolean scannedSecond = false;
     private String value1, value2;
     boolean visionApi = true;
-    private static String TAG = "vision";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -172,6 +170,7 @@ public class MainActivity extends AppCompatActivity {
 
             // Format, Content, Orientation, EC level
             if (resultCode == CommonStatusCodes.SUCCESS) {
+                String TAG = "vision";
                 if (intent != null) {
                     Barcode barcode = intent.getParcelableExtra(BarcodeCaptureActivity.BarcodeObject);
                     StringBuilder result = new StringBuilder();
@@ -197,6 +196,8 @@ public class MainActivity extends AppCompatActivity {
                     Log.d(TAG, "No barcode captured, intent data is null");
                 }
             } else {
+                Toast.makeText(this, String.format(getString(R.string.barcode_error),
+                        CommonStatusCodes.getStatusCodeString(resultCode)), Toast.LENGTH_LONG).show();
                 /*statusMessage.setText(String.format(getString(R.string.barcode_error),
                         CommonStatusCodes.getStatusCodeString(resultCode)));*/
             }
