@@ -1,0 +1,9 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:defaultValue="true"
+        android:key="google_vision"
+        android:summary="@string/pref_description_google_vision"
+        android:title="@string/pref_title_google_vision" />
+
+</PreferenceScreen>
